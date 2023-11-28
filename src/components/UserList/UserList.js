@@ -40,9 +40,10 @@ const UserList = () => {
 
   return (
     <Container>
-      <Row className="gap-lg-4 mt-4 ">
-        <Col>
-          <Card className="bg-light border-0 p-lg-3 p-md-3 p-sm-3 ">
+      <Row md={7} className="gap-lg-4 mt-4">
+        <Col className="mb-3">
+          <Card className="bg-light border-0">
+            <Card.Body>
             <Card.Header
               style={{ fontWeight: "bold" }}
               className="text-white bg-info border-0 mb-2"
@@ -59,28 +60,29 @@ const UserList = () => {
             ) : (
               filteredUsers.map((userList) => (
                 <Card
-                  className="my-2 card-hover"
+                  className="my-2 card-hover overflow-hidden"
                   key={userList.id}
                   onClick={() => userInfoHandler(userList.id)}
                 >
-                  <Card.Body className="d-flex align-items-center p-2  ">
+                  <Card.Body className="d-flex align-items-center p-2">
                     <Card.Img
-                      className="img-fluid rounded-5"
+                      className="img-fluid rounded-5 "
                       style={{ width: "60px" }}
                       src={userList.avatar}
                       alt="Avatar"
                     />
-                    <Card.Title className="m-2" style={{ fontSize: "15px" }}>
+                    <Card.Title className="m-2 fs-6" >
                       {userList.profile.username}
                     </Card.Title>
                   </Card.Body>
                 </Card>
               ))
             )}
+            </Card.Body>
           </Card>
         </Col>
 
-        <Col>
+        <Col md={5}>
           <Profile
             profileInfo={usersList}
             selectedUserId={selectedUserId}
